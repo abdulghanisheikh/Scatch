@@ -1,0 +1,29 @@
+const mongoose=require('mongoose');
+const userSchema=mongoose.Schema({
+    fullName:String,
+    email:{
+        type:String,
+        unique:true,
+        required:true
+    },
+    password:{
+        type:String,
+        unique:true,
+        required:true
+    },
+    cart:{
+        type:Array,
+        default:[]
+    },
+    isAdmin:Boolean,
+    orders:{
+        type:Array,
+        default:[]
+    },
+    contact:{
+        type:String,
+        required:true
+    },
+    picture:String
+});
+module.exports=mongoose.model("user",userSchema);
