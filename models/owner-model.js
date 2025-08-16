@@ -3,7 +3,8 @@ const ownerSchema=mongoose.Schema({
     fullName:{
         type:String,
         trim:true,
-        minLength:3
+        minLength:3,
+        required:true
     },
     email:{
         type:String,

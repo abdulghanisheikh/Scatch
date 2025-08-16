@@ -3,9 +3,9 @@ const app=express();
 const cookieParser=require('cookie-parser');
 const path=require('path');
 const db=require('./config/db-connection.js');
-const ownerRoutes=require('./routes/ownerRoutes.js');
-const userRoutes=require('./routes/userRoutes.js');
-const productRoutes=require('./routes/productRoutes.js');
+const ownerRoutes=require('./routes/owner-routes.js');
+const userRoutes=require('./routes/user-routes.js');
+const productRoutes=require('./routes/product-routes.js');
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
