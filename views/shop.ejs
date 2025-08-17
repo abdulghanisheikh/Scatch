@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container relative flex flex-col w-full h-screen">
+        <div class="navbar w-full px-5 py-1 justify-between">
+            <div class="logo">
+                <h1 class="text-2xl">Scatch</h1>
+            </div>
+        </div>
+        <div class="main flex w-full py-5 justify-between">
+            <div class="sideBar w-[25%] flex flex-col justify-start items-start gap-30 px-10">
+                <div class="flex gap-2 items-center mt-5">
+                    <h3>Sort by:</h3>
+                    <form action="/shop" class="flex flex-col justify-around">
+                        <select class="px-3 py-1 w-fit border-[1px] rounded-lg border-black" name="sortby">
+                            <option value="popular">Popular</option>
+                            <option value="quality">Newest</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="flex flex-col">
+                    <a href="">New Collection</a>
+                    <a href="">All Products</a>
+                    <a href="">Discounted Products</a>
+                </div>
+                <div>
+                    <h3 class="mb-2">Filter by:</h3>
+                    <div class="flex flex-col">
+                        <a href="">Availability</a>
+                        <a href="">Discount</a>
+                    </div>
+                </div>
+            </div>
+            <div class="products w-[75%] flex items-start wrap min-h-screen shadow-md shadow-black-800 p-3">
+                <div class="product w-50 h-82 flex flex-col overflow-hidden">
+                    <div class="image">
+                        <img src="../images/bags/arno-senoner.jpg" class="object-cover h-58 w-60 rounded-t-xl" alt="">
+                    </div>
+                    <div class="panel text-white flex justify-between items-center bg-red-400 rounded-b-xl p-5">
+                        <div class="flex flex-col">
+                            <h3>Gucci Bag</h3>
+                            <h3>₹2000</h3>
+                        </div>
+                        <div class="h-fit w-fit bg-white rounded-full p-1">
+                            <a href="">
+                                <img src="../images/add-to-cart.png" height="30px" width="30px" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

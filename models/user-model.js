@@ -1,6 +1,11 @@
 const mongoose=require('mongoose');
 const userSchema=mongoose.Schema({
-    fullName:String,
+    fullName:{
+        type:String,
+        trim:true,
+        minLength:3,
+        required:true
+    },
     email:{
         type:String,
         unique:true,
@@ -15,15 +20,11 @@ const userSchema=mongoose.Schema({
         type:Array,
         default:[]
     },
-    isAdmin:Boolean,
     orders:{
         type:Array,
         default:[]
     },
-    contact:{
-        type:String,
-        required:true
-    },
+    contact:Number,
     picture:String
 });
 module.exports=mongoose.model("user",userSchema);

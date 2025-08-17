@@ -1,12 +1,9 @@
 const express=require('express');
 const router=express.Router();
 const ownerModel=require('../models/owner-model');
+const bcrypt=require('bcrypt');
 const dotenv=require('dotenv');
 dotenv.config();
-
-router.get("/",(req,res)=>{
-    res.send("<h1>Hello from owner</h1>");
-});
 
 if(process.env.NODE_ENV==="development"){
     router.post("/create",async(req,res)=>{
@@ -15,13 +12,23 @@ if(process.env.NODE_ENV==="development"){
             return res.status(503).send("You don't have permission to create a new owner");
         }
         const {fullName,email,password,gstNo}=req.body;
+        const salt=await bcrypt.genSalt(10);
+        const hashedPassword=await bcrypt.hash(password,salt);
         let createdOwner=await ownerModel.create({
             fullName,
             email,
-            password
+            password:hashedPassword
         });
         res.status(200).send(createdOwner);
     });
 }
+
+router.get("/admin",(req,res)=>{
+    res.render("createproduct");
+});
+
+router.post("/product/create",(req,res)=>{
+    
+});
 
 module.exports=router;
