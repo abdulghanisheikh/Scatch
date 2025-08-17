@@ -33,12 +33,12 @@ const loginUser=async(req,res)=>{
             req.flash("error","User does not exists");
             return res.redirect("/");
         }
-        bcrypt.compare(password,user.password,(err,result)=>{
+        bcrypt.compare(password,user.password,async(err,result)=>{
             if(err) return res.send(err.message);
             if(result){
                 let token=generateToken(user);
                 res.cookie("token",token);
-                res.status(200).render("shop");
+                res.status(200).redirect("/shop");
             }
             else{
                 req.flash("error","email or password incorrect");

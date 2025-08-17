@@ -3,6 +3,7 @@ const router=express.Router();
 const ownerModel=require('../models/owner-model');
 const bcrypt=require('bcrypt');
 const dotenv=require('dotenv');
+const isLoggedIn=require('../middlewares/isLoggedIn.js');
 dotenv.config();
 
 if(process.env.NODE_ENV==="development"){
@@ -23,12 +24,10 @@ if(process.env.NODE_ENV==="development"){
     });
 }
 
-router.get("/admin",(req,res)=>{
-    res.render("createproduct");
+router.get("/admin",isLoggedIn,(req,res)=>{
+    let msg=req.flash("success");
+    res.render("createproduct",{msg});
 });
 
-router.post("/product/create",(req,res)=>{
-    
-});
 
 module.exports=router;

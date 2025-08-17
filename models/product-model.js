@@ -3,7 +3,7 @@ const productSchema=mongoose.Schema({
     productName:String,
     image:Buffer,
     price:Number,
-    discount:String,
+    discount:Number,
     bgColor:String,
     panelColor:String,
     textColor:String

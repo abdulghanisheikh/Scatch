@@ -9,6 +9,13 @@
 </head>
 <body>
     <div class="container relative flex flex-col w-full h-screen">
+        <% if(msg.length>0){ %>
+            <div class="bg-green-500 absolute top-[5%] left-1/2 -translate-x-[50%] -translate-y-[50%] w-fit rounded-lg p-3">
+                <span class="text-white text-lg">
+                    <%= msg %>
+                </span>
+            </div>
+        <% } %>
         <div class="navbar w-full px-5 py-1 justify-between">
             <div class="logo">
                 <h1 class="text-2xl">Scatch</h1>
@@ -22,24 +29,24 @@
             <div class="createProduct w-[50%] flex flex-col justify-start items-start wrap min-h-screen shadow-md shadow-black-800 p-3 px-5">
                 <h1 class="text-xl font-bold">Create New Product</h1>
                 <h1 class="text-lg font-semibold">Product Details</h1>
-                <form action="/owner/product/create" class="mt-5 flex flex-col w-full gap-5" method="post" enctype="multipart/form-data">
+                <form action="/product/create" class="mt-5 flex flex-col w-full gap-5" method="post" enctype="multipart/form-data">
                     <div class="flex flex-col gap-5">
                         <div class="flex flex-col gap-1">
                             <h1 class="font-semibold">Product Image</h1>
                             <input type="file" name="imageFile" class="w-50 py-3 bg-zinc-200 border-1 px-2 outline-none rounded-lg cursor-pointer">
                         </div>
                         <div class="flex w-full wrap gap-5">
-                            <input type="text" placeholder="Product Name" class="bg-zinc-200 p-2 rounded-lg w-1/3 outline-none hover:scale-103 duration-300 ease-in-out">
-                            <input type="text" placeholder="Product Price" class="bg-zinc-200 p-2 rounded-lg w-1/3 outline-none hover:scale-103 duration-300 ease-in-out">
-                            <input type="text" placeholder="Discount Price" class="bg-zinc-200 p-2 rounded-lg w-1/3 outline-none hover:scale-103 duration-300 ease-in-out">
+                            <input type="text" placeholder="Product Name" name="productName" class="bg-zinc-200 p-2 rounded-lg w-1/3 outline-none hover:scale-103 duration-300 ease-in-out">
+                            <input type="number" placeholder="Product Price" name="productPrice" class="bg-zinc-200 p-2 rounded-lg w-1/3 outline-none hover:scale-103 duration-300 ease-in-out">
+                            <input type="number" placeholder="Discount Price" name="productDiscount" class="bg-zinc-200 p-2 rounded-lg w-1/3 outline-none hover:scale-103 duration-300 ease-in-out">
                         </div>
                     </div>
                     <div class="flex flex-col gap-3">
                         <h1 class="font-semibold">Panel Details</h1>
                         <div class="flex w-full wrap gap-5">
-                            <input type="text" placeholder="Background Color" class="bg-zinc-200 p-2 rounded-lg w-1/3 outline-none hover:scale-103 duration-300 ease-in-out">
-                            <input type="text" placeholder="Panel Color" class="bg-zinc-200 p-2 rounded-lg w-1/3 outline-none hover:scale-103 duration-300 ease-in-out">
-                            <input type="text" placeholder="Text Color" class="bg-zinc-200 p-2 rounded-lg w-1/3 outline-none hover:scale-103 duration-300 ease-in-out">
+                            <input type="text" placeholder="Background Color" name="panelBgColor" class="bg-zinc-200 p-2 rounded-lg w-1/3 outline-none hover:scale-103 duration-300 ease-in-out">
+                            <input type="text" placeholder="Panel Color" name="panelColor" class="bg-zinc-200 p-2 rounded-lg w-1/3 outline-none hover:scale-103 duration-300 ease-in-out">
+                            <input type="text" placeholder="Text Color" name="panelTextColor" class="bg-zinc-200 p-2 rounded-lg w-1/3 outline-none hover:scale-103 duration-300 ease-in-out">
                         </div>
                     </div>
                     <button type="submit" class="p-4 mt-4 hover:scale-105 duration-300 ease-in-out shadow-lg hover:shadow-blue-300 rounded-lg bg-blue-500 cursor-pointer active:scale-95 text-white w-fit">Create New Product</button>
