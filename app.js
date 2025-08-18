@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname,'public')));
 app.use("/owner",ownerRoutes);
 app.use("/user",userRoutes);
 app.use("/product",productRoutes);
-app.use(mainPageRoute);
+app.use("/",mainPageRoute);
 
 app.listen(process.env.PORT,()=>{
     console.log("server running");
