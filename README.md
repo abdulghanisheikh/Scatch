@@ -7,16 +7,16 @@ This project demonstrates **authentication, authorization, product management, a
 ## 📸 Screenshots
 
 ### 🏠 Home Page (Login / Register)
-![Home Page](<img width="1919" height="862" alt="image" src="https://github.com/user-attachments/assets/472272b4-764d-48d4-88d9-ef1e8ce7e55a" />)
+(<img width="1919" height="862" alt="image" src="https://github.com/user-attachments/assets/472272b4-764d-48d4-88d9-ef1e8ce7e55a" />)
 
 ### 🛍️ Shop Page
-![Shop Page](<img width="1896" height="866" alt="image" src="https://github.com/user-attachments/assets/945ad0fa-ee44-4316-8105-b84ae4eed151" />)
+(<img width="1896" height="866" alt="image" src="https://github.com/user-attachments/assets/945ad0fa-ee44-4316-8105-b84ae4eed151" />)
 
 ### 🛒 Cart Page
-![Cart Page](<img width="1895" height="864" alt="image" src="https://github.com/user-attachments/assets/2bcef1b8-1527-4e4a-8b16-eb0a8ff221aa" />)
+(<img width="1895" height="864" alt="image" src="https://github.com/user-attachments/assets/2bcef1b8-1527-4e4a-8b16-eb0a8ff221aa" />)
 
 ### ✍️ Create Post (Admin Panel)
-![Create Post Page](<img width="1897" height="864" alt="image" src="https://github.com/user-attachments/assets/fc465954-292b-40d5-b32f-0b17870e0d51" />)
+(<img width="1897" height="864" alt="image" src="https://github.com/user-attachments/assets/fc465954-292b-40d5-b32f-0b17870e0d51" />)
 
 
 
