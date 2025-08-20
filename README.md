@@ -27,7 +27,7 @@ This project demonstrates **authentication, authorization, product management, a
 - Role-based access: **Admin** vs **User**.  
 
 ### 🛍️ Admin Features  
-- Add, update, and delete bag products.  
+- Add and delete bag products.  
 - Manage products directly from admin dashboard.  
 
 ### 👥 User Features  
