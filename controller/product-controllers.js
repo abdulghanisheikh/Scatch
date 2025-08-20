@@ -12,7 +12,6 @@ const addProduct=async(req,res)=>{
             panelColor,
             textColor:panelTextColor
         });
-        console.log(req.file);
         req.flash("success","product listed successfully");
         res.status(200).redirect("/owner/admin");
     }

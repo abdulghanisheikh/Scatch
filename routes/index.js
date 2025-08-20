@@ -6,22 +6,34 @@ const userModel=require('../models/user-model.js');
 
 router.get("/",(req,res)=>{
     let error=req.flash("error");
-    res.render("index",{error});
+    let msg=req.flash("success");
+    res.render("index",{error,msg});
 });
 
 router.get("/shop",isLoggedIn,async(req,res)=>{
-    let products=await productModel.find();
-    let msg=req.flash("success");
-    res.render("shop",{products,msg});
+    try{
+        let products=await productModel.find();
+        let msg=req.flash("success");
+        let error=req.flash("error");
+        const {sortby}=req.query;
+        if(sortby==="newest"){
+            products.reverse();
+        }
+        res.render("shop",{products,error,msg,sortby});
+    }
+    catch(err){
+        console.log(err);
+    }
 });
 
 router.get("/cart",isLoggedIn,async(req,res)=>{
     let user=await userModel.findOne({email:req.user.email}).populate("cart");
-    res.render("cart",{products:user.cart});
+    let error=req.flash("error");
+    res.render("cart",{products:user.cart,error});
 });
 
 router.get("/addToCart/:productId",isLoggedIn,async(req,res)=>{
-    let user=req.user
+    let user=req.user;
     user.cart.push(req.params.productId);
     await user.save();
     req.flash("success","Added to cart");

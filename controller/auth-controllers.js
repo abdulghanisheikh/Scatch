@@ -16,7 +16,8 @@ const registerUser=async(req,res)=>{
                     email,
                     password:hash
                 });
-                res.status(200).send("User created");
+                req.flash("success","User created");
+                res.status(200).redirect("/");
             });
         });
     }

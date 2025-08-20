@@ -16,6 +16,13 @@
                 </span>
             </div>
         <% } %>
+        <% if(error.length>0){ %>
+            <div class="bg-red-500 absolute top-[5%] left-1/2 -translate-x-[50%] -translate-y-[50%] w-fit rounded-lg p-3">
+                <span class="text-white text-lg">
+                    <%= error %>
+                </span>
+            </div>
+        <% } %>
         <div class="navbar w-full px-5 py-4 flex justify-between items-center">
             <div class="logo">
                 <h1 class="text-2xl">Scatch</h1>
@@ -30,10 +37,10 @@
             <div class="sideBar w-[25%] flex flex-col justify-start items-start gap-30 px-10">
                 <div class="flex gap-2 items-center mt-5">
                     <h3>Sort by:</h3>
-                    <form action="/shop" class="flex flex-col justify-around">
-                        <select class="px-3 py-1 w-fit border-[1px] rounded-lg border-black" name="sortby">
-                            <option value="popular">Popular</option>
-                            <option value="quality">Newest</option>
+                    <form method="get" action="/shop" class="flex flex-col justify-around">
+                        <select onchange="this.form.submit()" class="px-3 py-1 w-fit border-[1px] rounded-lg border-black" name="sortby">
+                            <option value="popular" <%= sortby==="popular"?"selected":"" %>>Popular</option>
+                            <option value="newest" <%= sortby==="newest"?"selected":"" %>>Newest</option>
                         </select>
                     </form>
                 </div>
@@ -52,7 +59,7 @@
             </div>
             <div class="products w-[75%] flex items-start wrap min-h-screen shadow-md shadow-black-800 p-3">
                 <% if(products){ %>
-                    <% products.forEach((product)=>{ %>
+                    <% products.forEach((product,id)=>{ %>
                         <div class="product hover:scale-105 duration-300 ease-in-out px-5 h-82 flex flex-col overflow-hidden">
                             <div class="image bg-[<%=product.bgColor%>] rounded-t-xl">
                                 <img src="data:image/jpeg;base64,<%= product.image.toString('base64') %>" class="object-contain h-58 w-60" alt="Product Image">
@@ -76,7 +83,7 @@
                                 </div>
                             </div>
                         </div>
-                    <% }) %>
+                  <% }) %>        
                 <% } %>
             </div>
         </div>

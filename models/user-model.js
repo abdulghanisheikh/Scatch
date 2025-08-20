@@ -25,8 +25,6 @@ const userSchema=mongoose.Schema({
     orders:{
         type:Array,
         default:[]
-    },
-    contact:Number,
-    picture:String
+    }
 });
 module.exports=mongoose.model("user",userSchema);
