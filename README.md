@@ -45,12 +45,11 @@ This project demonstrates **authentication, authorization, product management, a
 
 ## 🏗️ Tech Stack  
 
-- **Frontend**: EJS (Embedded JavaScript templates)  
+- **Frontend**: EJS (Embedded JavaScript templates), TailwindCSS  
 - **Backend**: Node.js, Express.js  
 - **Database**: MongoDB  
 - **Authentication**: JWT (JSON Web Tokens)  
 - **Password Security**: bcrypt for password hashing  
-- **Styling**: TailwindCSS
 
 
 ## ⚙️ Installation & Setup 
