@@ -30,7 +30,8 @@ router.get("/cart",isLoggedIn,async(req,res)=>{
     try{
         let user=await userModel.findOne({email:req.user.email}).populate("cart");
         let error=req.flash("error");
-        res.render("cart",{products:user.cart,error});
+        let msg=req.flash("removed");
+        res.render("cart",{products:user.cart,error,msg});
     }
     catch(err){
         res.status(500).send(err);
@@ -57,7 +58,22 @@ router.get("/removeFromCart/:productId",isLoggedIn,async(req,res)=>{
             return id.toString()!==req.params.productId;
         });
         await user.save();
+        req.flash("removed","Removed from cart");
         res.redirect("/cart");
+    }
+    catch(err){
+        res.status(500).send(err);
+    }
+});
+
+router.get("/shop/discounted",async(req,res)=>{
+    try{
+        let products=await productModel.find();
+        products=products.filter((product)=>{
+            return product.discount>0;
+        });
+        const {sortby}=req.query;
+        res.render("discountedproducts",{products,sortby});
     }
     catch(err){
         res.status(500).send(err);

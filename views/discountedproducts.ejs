@@ -9,20 +9,6 @@
 </head>
 <body>
     <div class="container relative flex flex-col w-full h-screen">
-        <% if(msg.length>0){ %>
-            <div class="bg-green-500 absolute top-[5%] left-1/2 -translate-x-[50%] -translate-y-[50%] w-fit rounded-lg p-3">
-                <span class="text-white text-lg">
-                    <%= msg %>
-                </span>
-            </div>
-        <% } %>
-        <% if(error.length>0){ %>
-            <div class="bg-red-500 absolute top-[5%] left-1/2 -translate-x-[50%] -translate-y-[50%] w-fit rounded-lg p-3">
-                <span class="text-white text-lg">
-                    <%= error %>
-                </span>
-            </div>
-        <% } %>
         <div class="navbar w-full px-5 py-4 flex justify-between items-center">
             <div class="logo">
                 <h1 class="text-2xl">Scatch</h1>
@@ -45,15 +31,15 @@
                     </form>
                 </div>
                 <div class="flex flex-col">
-                    <a href="/shop">New Collection</a>
+                    <a href="">New Collection</a>
                     <a href="/shop">All Products</a>
                     <a href="/shop/discounted">Discounted Products</a>
                 </div>
                 <div>
                     <h3 class="mb-2">Filter by:</h3>
                     <div class="flex flex-col">
-                        <a href="/shop" class="underline">Availability</a>
-                        <a href="/shop/discounted">Discount</a>
+                        <a href="/shop">Availability</a>
+                        <a href="/shop/discounted" class="underline">Discount</a>
                     </div>
                 </div>
             </div>
