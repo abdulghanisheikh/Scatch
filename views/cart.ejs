@@ -67,6 +67,7 @@
                             <h2>Total Amount</h2>
                             <h2 class="text-green-500 font-bold">₹ <%= Number(product.price-product.discount+20) %></h2>
                         </div>
+                        <a href="/removeFromCart/<%= product._id %>" class="text-white bg-red-500 rounded-md self-end mt-30 p-3 hover:scale-105 active:scale-95 duration-300 ease-in-out">Remove</a>
                     </div>
                 </div>
             <% }) %>

@@ -22,22 +22,46 @@ router.get("/shop",isLoggedIn,async(req,res)=>{
         res.render("shop",{products,error,msg,sortby});
     }
     catch(err){
-        console.log(err);
+        res.status(500).send(err);
     }
 });
 
 router.get("/cart",isLoggedIn,async(req,res)=>{
-    let user=await userModel.findOne({email:req.user.email}).populate("cart");
-    let error=req.flash("error");
-    res.render("cart",{products:user.cart,error});
+    try{
+        let user=await userModel.findOne({email:req.user.email}).populate("cart");
+        let error=req.flash("error");
+        res.render("cart",{products:user.cart,error});
+    }
+    catch(err){
+        res.status(500).send(err);
+    }
 });
 
 router.get("/addToCart/:productId",isLoggedIn,async(req,res)=>{
-    let user=req.user;
-    user.cart.push(req.params.productId);
-    await user.save();
-    req.flash("success","Added to cart");
-    res.redirect("/shop");
+    try{
+        let user=req.user;
+        user.cart.push(req.params.productId);
+        await user.save();
+        req.flash("success","Added to cart");
+        res.redirect("/shop");
+    }
+    catch(err){
+        res.status(500).send(err);
+    }
+});
+
+router.get("/removeFromCart/:productId",isLoggedIn,async(req,res)=>{
+    try{
+        let user=req.user;
+        user.cart=user.cart.filter((id)=>{
+            return id.toString()!==req.params.productId;
+        });
+        await user.save();
+        res.redirect("/cart");
+    }
+    catch(err){
+        res.status(500).send(err);
+    }
 });
 
 module.exports=router;

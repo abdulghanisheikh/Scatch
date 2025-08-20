@@ -5,9 +5,15 @@ const generateToken=require('../config/generate-token.js');
 const registerUser=async(req,res)=>{
     try{
         const {fullName,email,password}=req.body;
-        if(fullName===""||email===""||password==="") return res.status(503).send("fill all the entries");
+        if(fullName===""||email===""||password===""){
+            req.flash("error","All fields are mandatory");
+            return res.redirect("/");
+        }
         let user=await userModel.findOne({email});
-        if(user) return res.status(400).send("You already have an account, please login");
+        if(user){
+            req.flash("error","You already have an account, please login");
+            return res.redirect("/");
+        }
         bcrypt.genSalt(10,(err,salt)=>{
             bcrypt.hash(password,salt,async(err,hash)=>{
                 if(err) return res.status(503).send(err.message);
@@ -16,8 +22,8 @@ const registerUser=async(req,res)=>{
                     email,
                     password:hash
                 });
-                req.flash("success","User created");
-                res.status(200).redirect("/");
+                req.flash("success","User created, please login");
+                res.redirect("/");
             });
         });
     }

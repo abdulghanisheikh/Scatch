@@ -6,6 +6,7 @@ const productSchema=mongoose.Schema({
     discount:Number,
     bgColor:String,
     panelColor:String,
-    textColor:String
+    textColor:String,
+    addedToCart:Boolean
 });
 module.exports=mongoose.model("product",productSchema);
