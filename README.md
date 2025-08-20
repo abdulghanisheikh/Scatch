@@ -37,23 +37,14 @@ This project demonstrates **authentication, authorization, product management, a
 - **Styling**: TailwindCSS
 
 
-## ⚙️ Installation & Setup  
+## ⚙️ Installation & Setup 
 
-1. **Clone the repository**  
-```bash
-git clone https://github.com/abdulghanisheikh/Scatch
-npm install
-
-
-## 🔮 Future Enhancements  
-- Product search.  
-- Responsive design improvements.
+ - git clone https://github.com/abdulghanisheikh/Scatch
+ - npm install
 
 
 ## 👨‍💻 Author  
 
 Developed by **Abdul Ghani** ✨  
 📧 Email: [ghanisheikh26@gmail.com](mailto:ghanisheikh26@gmail.com)  
-
-
 
