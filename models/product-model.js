@@ -7,6 +7,9 @@ const productSchema=mongoose.Schema({
     bgColor:String,
     panelColor:String,
     textColor:String,
-    addedToCart:Boolean
+    addedToCart:{
+        type:Boolean,
+        default:false
+    }
 });
 module.exports=mongoose.model("product",productSchema);

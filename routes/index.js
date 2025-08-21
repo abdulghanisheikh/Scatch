@@ -42,6 +42,9 @@ router.get("/addToCart/:productId",isLoggedIn,async(req,res)=>{
     try{
         let user=req.user;
         user.cart.push(req.params.productId);
+        let product=await productModel.findOne({_id:req.params.productId});
+        product.addedToCart=true;
+        await product.save();
         await user.save();
         req.flash("success","Added to cart");
         res.redirect("/shop");
@@ -57,6 +60,9 @@ router.get("/removeFromCart/:productId",isLoggedIn,async(req,res)=>{
         user.cart=user.cart.filter((id)=>{
             return id.toString()!==req.params.productId;
         });
+        let product=await productModel.findOne({_id:req.params.productId});
+        product.addedToCart=false;
+        await product.save();
         await user.save();
         req.flash("removed","Removed from cart");
         res.redirect("/cart");

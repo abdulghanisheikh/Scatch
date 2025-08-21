@@ -4,6 +4,10 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.disabled-link{
+  pointer-events:none;
+}
+
 ::selection{
   color:orangered;
 }
