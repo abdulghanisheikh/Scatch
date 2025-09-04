@@ -3,7 +3,7 @@ const productModel=require('../models/product-model.js');
 const addProduct=async(req,res)=>{
     try{
         const {productName,productPrice,productDiscount,panelBgColor,panelColor,panelTextColor}=req.body;
-        let addedProduct=await productModel.create({
+        await productModel.create({
             productName,
             price:productPrice,
             discount:productDiscount,
@@ -13,7 +13,7 @@ const addProduct=async(req,res)=>{
             textColor:panelTextColor
         });
         req.flash("success","product listed successfully");
-        res.status(200).redirect("/owner/admin");
+        res.status(200).redirect("/user/admin");
     }
     catch(err){
         res.status(500).send(err.message);

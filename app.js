@@ -3,7 +3,6 @@ const app=express();
 const cookieParser=require('cookie-parser');
 const path=require('path');
 const db=require('./config/db-connection.js');
-const ownerRoutes=require('./routes/owner-routes.js');
 const userRoutes=require('./routes/user-routes.js');
 const productRoutes=require('./routes/product-routes.js');
 const mainPageRoute=require('./routes/index.js');
@@ -23,8 +22,6 @@ app.use(flash());
 app.set('view engine','ejs');
 app.use(express.static(path.join(__dirname,'public')));
 
-
-app.use("/owner",ownerRoutes);
 app.use("/user",userRoutes);
 app.use("/product",productRoutes);
 app.use(mainPageRoute);

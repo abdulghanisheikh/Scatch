@@ -19,7 +19,8 @@ router.get("/shop",isLoggedIn,async(req,res)=>{
         if(sortby==="newest"){
             products.reverse();
         }
-        res.render("shop",{products,error,msg,sortby});
+        let user=req.user;
+        res.render("shop",{products,error,msg,sortby,user});
     }
     catch(err){
         res.status(500).send(err);
@@ -31,7 +32,7 @@ router.get("/cart",isLoggedIn,async(req,res)=>{
         let user=await userModel.findOne({email:req.user.email}).populate("cart");
         let error=req.flash("error");
         let msg=req.flash("removed");
-        res.render("cart",{products:user.cart,error,msg});
+        res.render("cart",{user,products:user.cart,error,msg});
     }
     catch(err){
         res.status(500).send(err);

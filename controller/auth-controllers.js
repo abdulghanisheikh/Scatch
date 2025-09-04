@@ -4,8 +4,8 @@ const generateToken=require('../config/generate-token.js');
 
 const registerUser=async(req,res)=>{
     try{
-        const {fullName,email,password}=req.body;
-        if(fullName===""||email===""||password===""){
+        const {fullName,email,password,isOwner}=req.body;
+        if(!fullName||!email||!password){
             req.flash("error","All fields are mandatory");
             return res.redirect("/");
         }
@@ -20,7 +20,8 @@ const registerUser=async(req,res)=>{
                 let createdUser=await userModel.create({
                     fullName,
                     email,
-                    password:hash
+                    password:hash,
+                    isOwner
                 });
                 req.flash("success","User created, please login");
                 res.redirect("/");

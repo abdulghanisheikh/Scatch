@@ -16,6 +16,10 @@ const userSchema=mongoose.Schema({
         unique:true,
         required:true
     },
+    isOwner:{
+        type:Boolean,
+        default:false,
+    },
     cart:[
         {
         type:mongoose.Schema.Types.ObjectId,
